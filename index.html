@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engagement Invitation of Nicky & Melbie</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Playfair Display, Cinzel, & Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@200;300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons & Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        mocha: {
+                            50: '#FAF8F5',
+                            100: '#F3ECE0',
+                            200: '#E5D9C4',
+                            300: '#CDBC9F',
+                            400: '#B09A7A',
+                            500: '#8E7557', // Base Rich Mocha
+                            600: '#765F45',
+                            700: '#5F4C37',
+                            800: '#3D3022', // Dark Espresso Mocha
+                            900: '#251C13',
+                        },
+                        champagne: {
+                            50: '#FCFAF7',
+                            100: '#F7F3EB',
+                            200: '#EFEAE0', // Classic Champagne Base
+                            300: '#DFD2B7', // Soft Champagne-Gold
+                            400: '#C5A880', // Rich Metallic Accent Gold
+                            500: '#A88C64',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'Georgia', 'serif'],
+                        cinzel: ['"Cinzel"', 'serif'],
+                        sans: ['"Montserrat"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #EFEAE0;
+            color: #3D3022;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Hide Scrollbar for clean mobile experience */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Envelope / Overlay animations */
+        .envelope-overlay {
+            transition: all 1.8s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+        .envelope-overlay.slide-up {
+            transform: translateY(-100%) scale(1.05);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Elegant floating and pulsing animations */
+        @keyframes soft-pulse {
+            0%, 100% { transform: scale(1); opacity: 0.9; }
+            50% { transform: scale(1.04); opacity: 1; }
+        }
+        .pulse-elegant {
+            animation: soft-pulse 3s infinite ease-in-out;
+        }
+
+        @keyframes rotate-slow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .spinning {
+            animation: rotate-slow 20s linear infinite;
+        }
+
+        /* Premium Text Underline & Gold Dividers */
+        .gold-divider {
+            position: relative;
+            width: 180px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #C5A880, transparent);
+            margin: 1.75rem auto;
+        }
+        .gold-divider::after {
+            content: '✿';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #C5A880;
+            background-color: #FCFAF7;
+            padding: 0 10px;
+            font-size: 12px;
+        }
+
+        /* Timeline styling */
+        .timeline-container {
+            position: relative;
+            max-width: 380px;
+            margin: 30px auto 10px;
+            padding: 0 0 0 20px;
+            text-align: left;
+        }
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            left: 28px;
+            top: 10px;
+            bottom: 10px;
+            width: 1.5px;
+            background: rgba(197, 168, 128, 0.6);
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 36px;
+            margin-bottom: 28px;
+        }
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+        .timeline-dot {
+            position: absolute;
+            left: 2px;
+            top: 4px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: #FCFAF7;
+            border: 2px solid #C5A880;
+            z-index: 2;
+            box-shadow: 0 0 8px rgba(197, 168, 128, 0.4);
+        }
+
+        /* Custom scroll down indicator */
+        @keyframes scroll-down {
+            0% { transform: translateY(0); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateY(12px); opacity: 0; }
+        }
+        .mouse-scroll {
+            width: 22px;
+            height: 38px;
+            border: 1px solid #B09A7A;
+            border-radius: 11px;
+            position: relative;
+        }
+        .mouse-scroll::after {
+            content: '';
+            width: 3px;
+            height: 6px;
+            background-color: #C5A880;
+            position: absolute;
+            top: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+            animation: scroll-down 2s infinite;
+        }
+
+        /* Elegant Double Thin Gold Frame */
+        .royal-frame {
+            border: 1px solid rgba(197, 168, 128, 0.4);
+            position: relative;
+        }
+        .royal-frame::before {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            right: 4px;
+            bottom: 4px;
+            border: 1px solid rgba(197, 168, 128, 0.15);
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="font-sans overflow-hidden">
+
+    <!-- Custom Elegant Modal Popup -->
+    <div class="fixed inset-0 bg-black/75 backdrop-blur-md flex justify-center items-center z-[10000] opacity-0 pointer-events-none transition-all duration-300" id="customModal">
+        <div class="bg-[#FCFAF7] max-w-sm w-[90%] rounded-2xl p-8 text-center border border-champagne-300 shadow-2xl transform scale-95 transition-transform duration-300" id="modalBox">
+            <div class="w-14 h-14 bg-champagne-100 rounded-full flex items-center justify-center mx-auto mb-4 border border-champagne-300">
+                <i class="fa-solid fa-envelope-open-text text-mocha-500 text-xl"></i>
+            </div>
+            <div class="text-mocha-800 text-xs md:text-sm font-medium tracking-wide leading-relaxed mb-6" id="modalMessage">Message goes here</div>
+            <button class="w-full bg-mocha-700 hover:bg-mocha-800 text-white font-semibold py-3 px-6 rounded-xl transition duration-300 tracking-wider text-[11px] uppercase" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+    <!-- Lightbox Zoom Photo Overlay -->
+    <div class="fixed inset-0 bg-black/95 backdrop-blur-md flex justify-center items-center z-[10001] opacity-0 pointer-events-none transition-all duration-300 cursor-pointer" id="lightboxOverlay" onclick="closeLightbox()">
+        <div class="max-w-xl max-h-[85vh] w-[95%] relative">
+            <img class="w-full h-full object-contain rounded-2xl shadow-2xl border border-white/10" id="lightboxImg" src="" alt="Engagement Moment">
+            <button class="absolute top-4 right-4 bg-black/60 text-white rounded-full w-10 h-10 flex items-center justify-center text-lg hover:bg-black/90 transition">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+    </div>
+
+     <!-- Floating Music Control Button -->
+   <div id="musicBtn" class="fixed bottom-6 right-6 w-12 h-12 bg-mocha-700/90 text-white border border-champagne-300 rounded-full flex justify-center items-center cursor-pointer z-50 shadow-lg backdrop-blur-sm hover:scale-105 active:scale-95 transition-all duration-300 hidden" onclick="toggleMusic()">
+        <span class="music-wave-bar text-sm animate-pulse"><i class="fa-solid fa-music"></i></span>
+    </div>
+
+    <!-- Background Audio File -->
+    <audio id="myAudio" loop preload="auto">
+        <source src="song.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- COVER / ENVELOPE OVERLAY -->
+    <div class="fixed inset-0 z-[9999] flex flex-col justify-between items-center text-white envelope-overlay p-6 md:p-12 overflow-hidden bg-cover bg-center" id="envelopeOverlay" style="background-image: linear-gradient(rgba(37, 28, 19, 0.8), rgba(37, 28, 19, 0.65)), url('https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1600');">
+        
+        <!-- Elegant Background Glows & Art -->
+        <div class="absolute inset-0 opacity-15 pointer-events-none mix-blend-overlay" style="background-image: url('https://www.transparenttextures.com/patterns/black-paper.png');"></div>
+        <div class="absolute -top-32 -left-32 w-96 h-96 bg-champagne-400/25 rounded-full blur-[140px] pointer-events-none"></div>
+        <div class="absolute -bottom-32 -right-32 w-96 h-96 bg-mocha-500/35 rounded-full blur-[140px] pointer-events-none"></div>
+
+        <!-- Upper Floral Ornament -->
+        <div class="w-32 md:w-44 text-champagne-300/50 animate__animated animate__fadeInDown animate__delay-0.5s opacity-80 mt-4">
+            <svg viewBox="0 0 100 40" fill="none" stroke="currentColor" stroke-width="0.7" class="w-full h-auto">
+                <path d="M10,20 Q30,10 50,20 T90,20" />
+                <path d="M50,5 L50,35" />
+                <circle cx="50" cy="20" r="3" fill="currentColor" />
+                <path d="M30,15 C35,10 40,20 30,15 Z" fill="currentColor" opacity="0.4" />
+                <path d="M70,15 C65,10 60,20 70,15 Z" fill="currentColor" opacity="0.4" />
+            </svg>
+        </div>
+
+        <!-- Main Cover Content -->
+       <div class="text-center max-w-lg mx-auto flex-grow flex flex-col justify-center items-center z-10 w-full">
+            <p class="font-cinzel text-champagne-300 text-[10px] md:text-xs tracking-[0.4em] uppercase mb-5 animate__animated animate__fadeIn">THE ENGAGEMENT OF</p>
+            
+            <div class="royal-frame py-8 px-6 md:py-10 md:px-14 my-2 animate__animated animate__zoomIn bg-black/25 backdrop-blur-[2px] rounded-2xl max-w-xs md:max-w-md w-full">
+                <h1 class="font-serif text-3xl md:text-5xl text-champagne-50 font-light tracking-wide leading-tight">
+                    Nickystanley
+                </h1>
+                <div class="my-4 font-serif italic text-champagne-300 text-xl md:text-2xl opacity-90">&</div>
+                <h1 class="font-serif text-3xl md:text-5xl text-champagne-50 font-light tracking-wide leading-tight">
+                    Melbie Obby
+                </h1>
+            </div>
+
+            <div class="w-20 h-[1px] bg-gradient-to-r from-transparent via-champagne-300/50 to-transparent my-8"></div>
+            
+            <p class="text-[10px] md:text-[11px] tracking-[0.25em] text-champagne-200/90 font-light leading-relaxed max-w-xs mx-auto uppercase">
+                TO OUR PRECIOUS GUEST<br>
+            </p>
+
+            <!-- Exclusive Guest Message Card -->
+            <div class="mt-6 p-4 md:p-5 rounded-2xl border border-champagne-300/30 bg-black/40 backdrop-blur-md max-w-xs sm:max-w-sm mx-auto shadow-xl relative">
+                <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#251C13] px-3 py-0.5 text-champagne-300 text-[9px] tracking-widest uppercase font-cinzel border border-champagne-300/40 rounded-full flex items-center gap-1.5 whitespace-nowrap">
+                    <i class="fa-solid fa-lock text-[8px]"></i> Exclusive Note
+                </div>
+                <p class="text-[11px] md:text-xs text-champagne-100/90 font-serif italic leading-relaxed text-center pt-3 normal-case">
+                    "This invitation is exclusively for you. We kindly ask not to forward or share this invitation without our permission. Thank you for your understanding. Your presence means so much to us. Can't wait to celebrate together."
+                </p>
+            </div>
+        </div>
+
+
+        <!-- Lower Open Invitation Button -->
+        <div class="w-full text-center pb-12 z-10 animate__animated animate__fadeInUp animate__delay-0.5s">
+            <button class="pulse-elegant inline-flex items-center gap-3 bg-champagne-300/10 hover:bg-champagne-300/20 text-champagne-100 font-cinzel text-[10px] tracking-[0.25em] border border-champagne-300/60 py-4 px-12 rounded-full backdrop-blur-md shadow-2xl transition-all duration-300 uppercase hover:border-champagne-300 hover:shadow-champagne-400/20 cursor-pointer" onclick="openInvitation()">
+                <i class="fa-solid fa-envelope-open text-[10px] opacity-80"></i> Open Invitation
+            </button>
+            <p class="text-[8px] text-champagne-300/50 mt-4 tracking-[0.15em] uppercase font-light">Please tap to open the full content</p>
+        </div>
+    </div>
+
+    <!-- MAIN SCROLLABLE CONTAINER -->
+    <div class="main-scroll-container h-screen overflow-y-auto no-scrollbar scroll-smooth">
+        <div class="main-container max-w-lg mx-auto bg-[#FCFAF7] min-h-screen shadow-2xl relative border-x border-champagne-300/40">
+            
+            <!-- Texture Layer -->
+            <div class="absolute inset-0 opacity-[0.25] pointer-events-none" style="background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png');"></div>
+
+            <!-- Ambient Glows -->
+            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[350px] h-[350px] bg-champagne-100/50 rounded-full blur-[80px] pointer-events-none"></div>
+            <div class="absolute bottom-1/4 left-1/2 -translate-x-1/2 w-[350px] h-[350px] bg-mocha-100/40 rounded-full blur-[80px] pointer-events-none"></div>
+
+            <!-- =============================================
+                 SECTION 1: HERO & EXQUISITE QUOTE
+                 ============================================= -->
+            <section class="relative py-24 px-8 text-center flex flex-col items-center justify-center border-b border-champagne-200/60">
+                <div class="absolute top-0 left-0 w-28 h-28 text-champagne-400/20 p-2 pointer-events-none">
+                    <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="0.5" class="w-full h-full transform scale-x-[-1]">
+                        <path d="M0,0 Q20,10 10,30 T0,70" />
+                        <path d="M0,0 Q10,20 30,10 T70,0" />
+                        <path d="M15,15 C25,5 5,25 15,15 Z" fill="currentColor" opacity="0.3" />
+                    </svg>
+                </div>
+                <div class="absolute top-0 right-0 w-28 h-28 text-champagne-400/20 p-2 pointer-events-none">
+                    <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="0.5" class="w-full h-full">
+                        <path d="M0,0 Q20,10 10,30 T0,70" />
+                        <path d="M0,0 Q10,20 30,10 T70,0" />
+                        <path d="M15,15 C25,5 5,25 15,15 Z" fill="currentColor" opacity="0.3" />
+                    </svg>
+                </div>
+
+                <div class="text-champagne-400/80 text-3xl mb-4 spinning"><i class="fa-regular fa-bell"></i></div>
+                <p class="font-cinzel text-[10px] tracking-[0.35em] text-mocha-500 mb-2 font-medium">THE CELEBRATION OF ENGAGEMENT</p>
+                
+                <h1 class="font-serif text-3xl md:text-4xl text-mocha-800 font-light tracking-wider my-4">
+                    Nicky <span class="italic text-champagne-400 font-normal">&</span> Melbie
+                </h1>
+                
+                <div class="gold-divider"></div>
+
+                <!-- SDA Scripture Verse -->
+                <div class="mt-8 max-w-sm">
+                    <i class="fa-solid fa-quote-left text-champagne-300 text-xl block mb-2 opacity-60"></i>
+                    <p class="font-serif italic text-mocha-600 text-[13px] leading-relaxed px-5 text-center">
+                        "Two people are better than one, they can Help each other succeed. If one person falls, other can reach out and help. But someone who falls alone is in real trouble."
+                    </p>
+                    <span class="block mt-4 font-sans font-semibold tracking-wider text-[9px] text-mocha-400 uppercase">
+                        — Ecclesiastes 4:9-10
+                    </span>
+                </div>
+
+                <div class="mt-14 flex flex-col items-center">
+                    <div class="mouse-scroll"></div>
+                    <span class="text-[8px] text-mocha-400 mt-2 tracking-[0.2em] uppercase font-medium">Scroll Down</span>
+                </div>
+            </section>
+
+            <!-- =============================================
+                 SECTION 2: UNDANGAN MESRA & COUNTDOWN TIMER
+                 ============================================= -->
+            <section class="py-20 px-6 text-center relative border-b border-champagne-200/50">
+                <div class="text-champagne-400 text-3xl mb-4"><i class="fa-regular fa-calendar-check"></i></div>
+                <h2 class="font-serif text-2xl md:text-3xl text-mocha-800 font-light tracking-wide mb-4">Engagement Invitation</h2>
+                
+                <p class="text-[13px] leading-relaxed text-mocha-600 max-w-sm mx-auto mb-8 px-4">
+                    With grateful hearts to Almighty God and with great joy, we together with our families cordially invite you to share with us this memorable day of our Engagement:
+                </p>
+
+                <!-- LIVE COUNTDOWN TIMER DISPLAY -->
+                <div class="mb-10 max-w-sm mx-auto">
+                    <p class="font-cinzel text-[9px] tracking-[0.3em] text-mocha-400 uppercase mb-4 font-semibold">Counting Down To The Big Day</p>
+                    <div class="grid grid-cols-4 gap-2.5 px-2">
+                        <div class="bg-white/90 border border-champagne-300/70 rounded-2xl p-3 shadow-sm flex flex-col items-center justify-center">
+                            <span class="font-serif text-2xl md:text-3xl font-light text-mocha-800" id="days">00</span>
+                            <span class="font-cinzel text-[9px] text-mocha-400 tracking-wider mt-1 uppercase">Days</span>
+                        </div>
+                        <div class="bg-white/90 border border-champagne-300/70 rounded-2xl p-3 shadow-sm flex flex-col items-center justify-center">
+                            <span class="font-serif text-2xl md:text-3xl font-light text-mocha-800" id="hours">00</span>
+                            <span class="font-cinzel text-[9px] text-mocha-400 tracking-wider mt-1 uppercase">Hours</span>
+                        </div>
+                        <div class="bg-white/90 border border-champagne-300/70 rounded-2xl p-3 shadow-sm flex flex-col items-center justify-center">
+                            <span class="font-serif text-2xl md:text-3xl font-light text-mocha-800" id="minutes">00</span>
+                            <span class="font-cinzel text-[9px] text-mocha-400 tracking-wider mt-1 uppercase">Minutes</span>
+                        </div>
+                        <div class="bg-white/90 border border-champagne-300/70 rounded-2xl p-3 shadow-sm flex flex-col items-center justify-center">
+                            <span class="font-serif text-2xl md:text-3xl font-light text-mocha-800" id="seconds">00</span>
+                            <span class="font-cinzel text-[9px] text-mocha-400 tracking-wider mt-1 uppercase">Seconds</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event Details Highlight Box -->
+                <div class="bg-white border border-champagne-300/80 rounded-3xl py-8 px-6 max-w-sm mx-auto shadow-md relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-champagne-400 via-champagne-300 to-champagne-400"></div>
+
+                    <p class="font-cinzel text-[10px] tracking-[0.2em] text-mocha-400 uppercase mb-1">Day & Date</p>
+                    <div class="font-serif text-xl text-mocha-800 font-normal tracking-wide mb-1">Sunday, 20 December 2026</div>
+                    
+                    <div class="w-16 h-[1px] bg-champagne-300/40 mx-auto my-4"></div>
+
+                    <p class="font-cinzel text-[10px] tracking-[0.2em] text-mocha-400 uppercase mb-1">Time</p>
+                    <div class="text-[13px] font-medium text-mocha-700 mb-4">10.00 AM – 2.00 PM</div>
+
+                    <div class="w-16 h-[1px] bg-champagne-300/40 mx-auto my-4"></div>
+
+                    <p class="font-cinzel text-[10px] tracking-[0.2em] text-mocha-400 uppercase mb-1">Venue Location</p>
+                    <div class="text-sm font-semibold text-mocha-800 leading-relaxed mb-1">
+                        Navita Multipurpose Hall
+                    </div>
+                    <div class="text-xs text-mocha-500 leading-relaxed max-w-[240px] mx-auto">
+                        Tamparuli, Sabah
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="mt-8 max-w-xs mx-auto space-y-3">
+                    <p class="text-[11px] text-mocha-400 italic mb-1">Navigation guide to the venue:</p>
+                    
+                    <a href="https://www.google.com/maps/search/?api=1&query=Navita+multipurpose+hall+tuaran+sabah" target="_blank" class="flex items-center justify-center gap-3 bg-mocha-700 hover:bg-mocha-800 text-white font-semibold py-3.5 px-6 rounded-2xl shadow-lg shadow-mocha-700/10 transition-all duration-300 tracking-wider text-[11px] uppercase cursor-pointer">
+                        <i class="fa-solid fa-location-dot text-champagne-300"></i> Google Maps
+                    </a>
+                    
+                    <a href="https://waze.com/ul?q=Navita+Multipurpose+Hall+Tuaran" target="_blank" class="flex items-center justify-center gap-3 bg-white hover:bg-champagne-100 text-mocha-800 border border-champagne-300 font-semibold py-3.5 px-6 rounded-2xl transition-all duration-300 tracking-wider text-[11px] uppercase cursor-pointer shadow-sm">
+                        <i class="fa-brands fa-waze text-sky-500 text-sm"></i> Waze Navigation
+                    </a>
+                </div>
+            </section>
+
+            <!-- =============================================
+                 SECTION 3: ENGAGEMENT TIMELINE (PAGE / SEKYSEN BARU)
+                 ============================================= -->
+            <section class="py-20 px-6 text-center relative border-b border-champagne-200/50 bg-[#FAF8F5]/60">
+                <p class="font-cinzel text-[10px] tracking-[0.3em] text-mocha-500 uppercase mb-2 font-medium">20.12.2026 | SUNDAY</p>
+                
+                <h2 class="font-serif text-3xl md:text-4xl text-mocha-800 font-light tracking-wide mb-3">
+                    Engagement Timeline
+                </h2>
+                
+                <div class="flex items-center justify-center gap-3 my-4">
+                    <div class="w-12 h-[1px] bg-champagne-400/60"></div>
+                    <i class="fa-solid fa-heart text-champagne-400 text-xs"></i>
+                    <div class="w-12 h-[1px] bg-champagne-400/60"></div>
+                </div>
+
+                <p class="font-cinzel text-[10px] tracking-[0.25em] text-mocha-400 uppercase mb-8">
+                    NAVITA MULTIPURPOSE HALL, Tamparuli
+                </p>
+
+                <!-- Vertical Timeline List -->
+                <div class="timeline-container">
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="text-[11px] font-bold text-champagne-500 tracking-wider uppercase mb-0.5">10:00 AM - 10:30 AM</div>
+                        <div class="font-serif text-base text-mocha-800 font-normal">Arrival of families and friends</div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="text-[11px] font-bold text-champagne-500 tracking-wider uppercase mb-0.5">10:30 AM - 10:45 AM</div>
+                        <div class="font-serif text-base text-mocha-800 font-normal">Opening prayer by Pastor</div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="text-[11px] font-bold text-champagne-500 tracking-wider uppercase mb-0.5">10:45 AM - 11:00 AM</div>
+                        <div class="font-serif text-base text-mocha-800 font-normal">Introduction of both families</div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="text-[11px] font-bold text-champagne-500 tracking-wider uppercase mb-0.5">11:00 AM - 11:15 AM</div>
+                        <div class="font-serif text-base text-mocha-800 font-normal">Document signing & Reading</div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="text-[11px] font-bold text-champagne-500 tracking-wider uppercase mb-0.5">11:15 AM - 11:45 AM</div>
+                        <div class="font-serif text-base text-mocha-800 font-normal">Ring & Gift exchange & Cake cutting</div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="text-[11px] font-bold text-champagne-500 tracking-wider uppercase mb-0.5">11:45 AM - 12:30 PM</div>
+                        <div class="font-serif text-base text-mocha-800 font-normal">Photo session</div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="text-[11px] font-bold text-champagne-500 tracking-wider uppercase mb-0.5">12:30 PM - 12:45 PM</div>
+                        <div class="font-serif text-base text-mocha-800 font-normal">Lunch time (Food Blessings By Pastor)</div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="text-[11px] font-bold text-champagne-500 tracking-wider uppercase mb-0.5">12:45 PM - 2:00 PM</div>
+                        <div class="font-serif text-base text-mocha-800 font-normal">Fun Time</div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- =============================================
+                 SECTION 4: RSVP FORM
+                 ============================================= -->
+            <section id="rsvp-section" class="py-20 px-6 text-center relative border-b border-champagne-200/50">
+                <div class="text-champagne-400 text-3xl mb-4"><i class="fa-regular fa-paper-plane"></i></div>
+                <h2 class="font-serif text-2xl md:text-3xl text-mocha-800 font-light tracking-wide mb-2">RSVP Confirmation</h2>
+                <p class="text-xs text-mocha-600 leading-relaxed max-w-sm mx-auto mb-8 px-4">
+                    Please kindly confirm your attendance by <span class="font-semibold text-mocha-800">1 December 2026</span> so we can properly prepare our catering and arrangements.
+                </p>
+
+                <div class="max-w-md mx-auto bg-white border border-champagne-300 rounded-3xl p-6 shadow-md text-left relative overflow-hidden">
+                    <form id="rsvpForm">
+                        <div class="mb-5">
+                            <label for="nama_tetamu" class="block text-[10px] font-bold uppercase tracking-widest text-mocha-500 mb-2">Your Full Name</label>
+                            <input type="text" id="nama_tetamu" class="w-full px-4 py-3.5 border border-champagne-200 focus:border-champagne-400 focus:ring-1 focus:ring-champagne-400 rounded-xl text-xs bg-mocha-50/25 text-mocha-800 transition outline-none" placeholder="Enter your full name" required>
+                        </div>
+
+                        <div class="mb-5">
+                            <label class="block text-[10px] font-bold uppercase tracking-widest text-mocha-500 mb-2">Will you attend?</label>
+                            <div class="space-y-3 mt-2">
+                                <label class="flex items-center gap-3 px-4 py-3.5 border border-champagne-100 rounded-xl bg-mocha-50/20 hover:bg-mocha-50/40 cursor-pointer transition text-xs">
+                                    <input type="radio" name="status_hadir" value="Hadir" class="text-mocha-600 focus:ring-mocha-400" checked onclick="togglePaxSelect(true)">
+                                    <span class="text-mocha-700 font-medium">By God's grace, I will attend</span>
+                                </label>
+                                <label class="flex items-center gap-3 px-4 py-3.5 border border-champagne-100 rounded-xl bg-mocha-50/20 hover:bg-mocha-50/40 cursor-pointer transition text-xs">
+                                    <input type="radio" name="status_hadir" value="Tidak Hadir" class="text-mocha-600 focus:ring-mocha-400" onclick="togglePaxSelect(false)">
+                                    <span class="text-mocha-500">Regretfully, I cannot attend</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="mb-6 transition-all duration-300" id="paxGroup">
+                            <label for="jumlah_pax" class="block text-[10px] font-bold uppercase tracking-widest text-mocha-500 mb-2">Number of Guests (Pax)</label>
+                            <select id="jumlah_pax" class="w-full px-4 py-3.5 border border-champagne-200 focus:border-champagne-400 focus:ring-1 focus:ring-champagne-400 rounded-xl text-xs bg-mocha-50/25 text-mocha-800 transition outline-none cursor-pointer">
+                                <option value="1">1 Person</option>
+                                <option value="2">2 Persons</option>
+                            </select>
+                        </div>
+
+                        <button type="button" class="w-full bg-mocha-700 hover:bg-mocha-800 text-white font-semibold py-4 px-6 rounded-xl shadow-lg shadow-mocha-700/10 transition duration-300 tracking-wider text-[11px] uppercase cursor-pointer" id="btnSubmit" onclick="prosesKehadiran()">
+                            ✨ Confirm RSVP Now
+                        </button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- =============================================
+                 SECTION 5: FOOTER CLOSING & CONTACT INFO
+                 ============================================= -->
+            <footer class="py-16 px-6 text-center bg-mocha-800 text-champagne-100 border-t-2 border-champagne-400">
+                <p class="font-cinzel text-xs tracking-[0.4em] text-champagne-300 uppercase">THANK YOU</p>
+                <div class="w-16 h-[1px] bg-champagne-400/40 mx-auto my-5"></div>
+                <p class="text-[11px] leading-relaxed max-w-xs mx-auto italic text-champagne-200 opacity-85 px-4 font-light">
+                    "Your blessings and presence are deeply treasured as we celebrate the union of our lives under God's guidance."
+                </p>
+                
+                <p class="font-serif italic text-xl text-champagne-200 mt-8 tracking-wide font-light">
+                    Nicky & Melbie
+                </p>
+                <p class="text-[9px] text-champagne-400/60 uppercase tracking-[0.2em] mt-2 font-medium">SUNDAY, 20 DECEMBER 2026</p>
+                
+                <div class="w-10 h-10 text-champagne-400/20 mx-auto mt-6 opacity-40">
+                    <svg viewBox="0 0 100 100" fill="currentColor">
+                        <path d="M50 15 L62 38 L88 42 L69 61 L73 87 L50 75 L27 87 L31 61 L12 42 L38 38 Z" />
+                    </svg>
+                </div>
+
+                <div class="w-24 h-px bg-champagne-400/20 mx-auto my-8"></div>
+
+                <!-- DIGITAL INVITATION COMPANY INFO & CONTACT CARDS -->
+                <p class="text-[10px] uppercase tracking-[0.3em] text-champagne-300 font-medium mb-1">
+                    DESIGNED & DEVELOPED BY
+                </p>
+
+                <p class="font-cinzel text-xl text-champagne-100 font-bold tracking-wider">
+                    JEMPUT.DIGITAL
+                </p>
+
+                <p class="text-[10px] text-champagne-300/80 mt-1 mb-6 font-light">
+                    Elegant Digital Invitation • Interactive RSVP
+                </p>
+
+                <div class="max-w-xs mx-auto space-y-3 text-left">
+                    <!-- TikTok Card -->
+                    <a href="https://www.tiktok.com/@jemput.digital3" 
+                       target="_blank" 
+                       onclick="stopMusic()" 
+                       ontouchstart="stopMusic()" 
+                       onmousedown="stopMusic()"
+                       class="flex items-center justify-between p-3.5 bg-mocha-50/20 hover:bg-mocha-50/40 border border-champagne-200/60 rounded-xl transition-all duration-300 group">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-black/80 flex items-center justify-center text-white text-sm shadow-sm group-hover:scale-105 transition-transform">
+                                <i class="fa-brands fa-tiktok"></i>
+                            </div>
+                            <span class="text-xs font-medium text-champagne-100 group-hover:text-white transition-colors">@jemput.digital</span>
+                        </div>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-champagne-400 opacity-60"></i>
+                    </a>
+
+                    <!-- WhatsApp Nickystanley -->
+                    <a href="https://wa.me/601121801545?text=Hello%20Nickystanley,%20saya%20ingin%20bertanya%20mengenai%20kad%20digital." 
+                       target="_blank" 
+                       onclick="stopMusic()" 
+                       ontouchstart="stopMusic()" 
+                       onmousedown="stopMusic()"
+                       class="flex items-center justify-between p-3.5 bg-mocha-50/20 hover:bg-mocha-50/40 border border-champagne-200/60 rounded-xl transition-all duration-300 group">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-emerald-600/80 flex items-center justify-center text-white text-sm shadow-sm group-hover:scale-105 transition-transform">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </div>
+                            <div class="text-left">
+                                <div class="text-[11px] font-semibold text-champagne-100 group-hover:text-white">Nickystanley</div>
+                                <div class="text-[10px] text-champagne-300/80 font-mono">+6011-21801545</div>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-comments text-xs text-emerald-400 opacity-80"></i>
+                    </a>
+
+                    <!-- WhatsApp Melbie Obby -->
+                    <a href="https://wa.me/60109427466?text=Hello%20Melbie,%20saya%20ingin%20bertanya%20mengenai%20kad%20digital." 
+                       target="_blank" 
+                       onclick="stopMusic()" 
+                       ontouchstart="stopMusic()" 
+                       onmousedown="stopMusic()"
+                       class="flex items-center justify-between p-3.5 bg-mocha-50/20 hover:bg-mocha-50/40 border border-champagne-200/60 rounded-xl transition-all duration-300 group">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-emerald-600/80 flex items-center justify-center text-white text-sm shadow-sm group-hover:scale-105 transition-transform">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </div>
+                            <div class="text-left">
+                                <div class="text-[11px] font-semibold text-champagne-100 group-hover:text-white">Melbie Obby</div>
+                                <div class="text-[10px] text-champagne-300/80 font-mono">+6010-9427466</div>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-comments text-xs text-emerald-400 opacity-80"></i>
+                    </a>
+                </div>
+
+                <div class="text-[8px] text-white/30 mt-10 tracking-widest uppercase">
+                    © 2026 JEMPUT.DIGITAL. All Rights Reserved.
+                </div>
+            </footer>
+
+        </div>
+    </div>
+
+    <!-- ELEGANT LOGICS & SCRIPT INTEGRATIONS -->
+    <script>
+        var audio = document.getElementById("myAudio");
+        var musicBtn = document.getElementById("musicBtn");
+        
+        // Active Google Apps Script Web App URL
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxPDglyksJCtfDhmdo7Mlbir6QWt7hRQVuub4tw9Cp-KDU4pkMJuQtUrtAGYmvlvXQ/exec'; 
+
+        // Extract Guest Name dynamically from URL Parameter (?to=Name)
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const guestName = urlParams.get('to');
+            if (guestName) {
+                document.getElementById('guest-name').innerText = guestName;
+            } else {
+                document.getElementById('guest-name').innerText = "Our Beloved Guest";
+            }
+        });
+
+        // Open Envelope Cover Event
+        function openInvitation() {
+            document.getElementById("envelopeOverlay").classList.add("slide-up");
+            
+            // Play background music
+            if (audio) {
+                audio.play().catch(function(error) {
+                    console.log("Browser blocked autoplay prior to interaction:", error);
+                });
+            }
+            
+            if (musicBtn) {
+                musicBtn.classList.remove("hidden");
+                musicBtn.classList.add("flex", "spinning");
+            }
+        }
+
+        // Toggle Music Playback
+        function toggleMusic() {
+            var audioEl = document.getElementById("myAudio") || audio;
+            var btnEl = document.getElementById("musicBtn") || musicBtn;
+            if (audioEl.paused) {
+                audioEl.play();
+                btnEl.classList.add("spinning");
+                btnEl.innerHTML = '<span class="music-wave-bar text-sm"><i class="fa-solid fa-music"></i></span>';
+            } else {
+                audioEl.pause();
+                btnEl.classList.remove("spinning");
+                btnEl.innerHTML = '<span class="music-wave-bar text-sm text-mocha-400"><i class="fa-solid fa-volume-xmark"></i></span>';
+            }
+        }
+
+        // Instantly stop music when opening external contact links
+        function stopMusic() {
+            var audioEl = document.getElementById("myAudio") || audio;
+            var btnEl = document.getElementById("musicBtn") || musicBtn;
+            if (audioEl) {
+                try {
+                    audioEl.pause();
+                } catch(e) {
+                    console.log("Pause error:", e);
+                }
+            }
+            if (btnEl) {
+                btnEl.classList.remove("spinning");
+                btnEl.innerHTML = '<span class="music-wave-bar text-sm text-mocha-400"><i class="fa-solid fa-volume-xmark"></i></span>';
+            }
+        }
+
+        // Toggle Pax dropdown dynamically when attendance selection shifts
+        function togglePaxSelect(show) {
+            const paxGroup = document.getElementById('paxGroup');
+            if (paxGroup) {
+                if (show) {
+                    paxGroup.classList.remove('hidden');
+                } else {
+                    paxGroup.classList.add('hidden');
+                }
+            }
+        }
+
+        // Custom Modal Box controls
+        function showModal(msg) {
+            document.getElementById('modalMessage').innerHTML = msg;
+            const modal = document.getElementById('customModal');
+            const box = document.getElementById('modalBox');
+            modal.classList.remove('pointer-events-none', 'opacity-0');
+            box.classList.remove('scale-95');
+            box.classList.add('scale-100');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('customModal');
+            const box = document.getElementById('modalBox');
+            modal.classList.add('pointer-events-none', 'opacity-0');
+            box.classList.remove('scale-100');
+            box.classList.add('scale-95');
+        }
+
+        // Lightbox Fullscreen Image zoom controls
+        function zoomPhoto(imgSrc) {
+            var lightboxOverlay = document.getElementById('lightboxOverlay');
+            var lightboxImg = document.getElementById('lightboxImg');
+            lightboxImg.src = imgSrc;
+            lightboxOverlay.classList.remove('pointer-events-none', 'opacity-0');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightboxOverlay').classList.add('pointer-events-none', 'opacity-0');
+        }
+
+        // LIVE COUNTDOWN TIMER TO 20 DECEMBER 2026
+        const targetDate = new Date("Dec 20, 2026 10:00:00").getTime();
+        
+        const countdownTimer = setInterval(function() {
+            const now = new Date().getTime();
+            const difference = targetDate - now;
+
+            const d = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const h = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((difference % (1000 * 60)) / 1000);
+
+            if (difference > 0) {
+                document.getElementById("days").innerText = d < 10 ? "0" + d : d;
+                document.getElementById("hours").innerText = h < 10 ? "0" + h : h;
+                document.getElementById("minutes").innerText = m < 10 ? "0" + m : m;
+                document.getElementById("seconds").innerText = s < 10 ? "0" + s : s;
+            } else {
+                clearInterval(countdownTimer);
+                document.getElementById("days").innerText = "00";
+                document.getElementById("hours").innerText = "00";
+                document.getElementById("minutes").innerText = "00";
+                document.getElementById("seconds").innerText = "00";
+            }
+        }, 1000);
+
+
+    
+// Check on page load if user already submitted RSVP
+window.addEventListener('DOMContentLoaded', () => {
+    // Existing URL parameter code...
+    const urlParams = new URLSearchParams(window.location.search);
+    const guestName = urlParams.get('to');
+    if (guestName) {
+        document.getElementById('guest-name').innerText = guestName;
+    } else {
+        document.getElementById('guest-name').innerText = "Our Beloved Guest";
+    }
+
+    // Check localStorage for prior RSVP submission
+    if (localStorage.getItem('rsvp_submitted') === 'true') {
+        disableRSVPForm();
+    }
+});
+
+function disableRSVPForm() {
+    const btn = document.getElementById('btnSubmit');
+    if (btn) {
+        btn.innerHTML = "✅ RSVP Already Submitted";
+        btn.disabled = true;
+        btn.classList.remove('bg-mocha-700', 'hover:bg-mocha-800');
+        btn.classList.add('bg-gray-400', 'cursor-not-allowed');
+    }
+}
+
+// Updated RSVP submission logic with single-submission lock
+function prosesKehadiran() {
+    var nama = document.getElementById('nama_tetamu').value.trim();
+    var statusElement = document.querySelector('input[name="status_hadir"]:checked');
+    var status = statusElement ? statusElement.value : 'Hadir';
+    var pax = document.getElementById('jumlah_pax').value;
+    var btn = document.getElementById('btnSubmit');
+
+    if (nama === "") {
+        showModal("Please enter your full name first.");
+        return;
+    }
+
+    // Extra check before sending
+    if (localStorage.getItem('rsvp_submitted') === 'true') {
+        showModal("You have already submitted your RSVP response.");
+        disableRSVPForm();
+        return;
+    }
+
+    btn.innerHTML = "Saving response... ⏳";
+    btn.disabled = true;
+
+    var formData = new URLSearchParams();
+    formData.append('nama', nama);
+    formData.append('status', status);
+    formData.append('pax', status === 'Tidak Hadir' ? '0' : pax);
+
+    fetch(scriptURL, { 
+        method: 'POST', 
+        body: formData,
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        }
+    })
+    .then(response => {
+        stopMusic();
+        
+        // Save flag in local storage so they cannot submit again from this browser
+        localStorage.setItem('rsvp_submitted', 'true');
+        disableRSVPForm();
+
+        showModal("Thank you, <b>" + nama + "</b>!<br><br>Your attendance preference has been successfully recorded in our system.");
+    })
+    .catch(error => {
+        console.error('Error!', error.message);
+        showModal("Apologies, a network error occurred. We could not record your RSVP online.");
+        btn.innerHTML = "✨ Confirm RSVP Now";
+        btn.disabled = false;
+    });
+}
+    </script>
+</body>
+</html>
